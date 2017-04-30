@@ -35,14 +35,17 @@ function showCountriesList(resp) {
    		$('<td>').text('alpha 3 code:').appendTo('#countries tr:nth-child(3)');
    		$('<td>').text(item.alpha3Code).appendTo('#countries tr:nth-child(3)');
    		var alpha3Code = item.alpha3Code;
-   		//console.log(alpha3Code);
-   		var flagLink = "https://restcountries.eu/data/" + alpha3Code + ".svg";
+   		var alpha3CodeLow = alpha3Code.toLowerCase();
+   		console.log(alpha3CodeLow);
+   		var flagLink = "https://restcountries.eu/data/" + alpha3CodeLow + ".svg";
+   		var img = $('<img>').attr('src', flagLink).attr('widht', 90).attr('height', 60);
    		$('<tr>').appendTo(countriesList);
    		$('<td>').text('flag:').appendTo('#countries tr:nth-child(4)');
-   		$('<td>').append('<a>').attr('href', flagLink).appendTo('#countries tr:nth-child(4)');
+   		$('<td>').appendTo('#countries tr:nth-child(4)').append(img);
+   		
 
 });
 };
-debugger
+
 })
 
